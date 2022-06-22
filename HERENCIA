@@ -1,0 +1,93 @@
+from abc import *
+
+class PoblacionGeneral(ABC):
+
+    __poblacionDelPais = float(0.0)
+    __tasaCrecimiento = float(0.0)
+    __tasaMuertes = float(0.0)
+
+    # Metodo constructor
+    def __init__(self, poblacionDelPais, tasaCrecimiento):
+        self.__poblacionDelPais = poblacionDelPais
+        self.__tasaCrecimiento = tasaCrecimiento
+
+    @staticmethod
+    def calcularPoblacionUnAnio(self):
+        pass
+
+    @staticmethod
+    def calcularPoblacionDosAnios(self):
+        pass
+
+    @staticmethod
+    def calcularPoblacionTresAnios(self):
+        pass
+
+    @staticmethod
+    def get_crecimientoUnAnio(self):
+            pass
+
+    @staticmethod
+    def get_crecimientoDosAnios(self):
+        pass
+
+    @staticmethod
+    def get_crecimientoTresAnios(self):
+        pass
+
+
+class poblacion(PoblacionGeneral):
+    _poblacionDelPais = float (0.0)
+
+    def __init__(self, poblacionDelPais, tasaCrecimiento):
+        PoblacionGeneral.__init__(self, poblacionDelPais, tasaCrecimiento)
+        self.__poblacionDelPais=poblacionDelPais
+        self.__tasaCrecimiento=tasaCrecimiento
+        self.calcularPoblacionUnAnio()
+        self.calcularPoblacionDosAnios()
+        self.calcularPoblacionTresAnios()
+
+    def calcularPoblacionUnAnio(self):
+        self.__tasaCrecimiento = self.__tasaCrecimiento / 100
+        self.__crecimientoUnAnio = (self.__poblacionDelPais * self.__tasaCrecimiento) + self.__poblacionDelPais
+
+    def calcularPoblacionDosAnios(self):
+        self.__crecimientoDosAnios = self.__tasaCrecimiento / 100
+        self.__crecimientoDosAnios = (self.__poblacionDelPais * self.__tasaCrecimiento) + self.__poblacionDelPais
+
+    def calcularPoblacionTresAnios(self):
+        self.__crecimientoTresAnios=self.__tasaCrecimiento/100
+        self.__crecimientoTresAnios=(self.__poblacionDelPais* self.__tasaCrecimiento)+ self.__poblacionDelPais
+
+
+
+    def get_crecimientoUnAnio(self):
+        return self.__crecimientoUnAnio
+
+    def get_crecimientoDosAnios(self):
+        return self.__crecimientoDosAnios
+
+    def get_crecimientoTresAnios(self):
+        return self.__crecimientoTresAnios
+
+class PoblacionUnionReal(PoblacionGeneral):
+    _poblacionTotal=float(0)
+
+    def __init__(self,tasaMuertes,poblacionDelPais2,tasaCrecimiento2):
+        PoblacionGeneral.__init__(self,tasaMuertes,poblacionDelPais2,tasaCrecimiento2)
+        self.__tasaMuertes =tasaMuertes
+        self.__pobacionDelPais2=poblacionDelPais2
+        self.__tasaCrecimiento2=tasaCrecimiento2
+        self.calcularpoblacionTotal()
+
+
+    def calcularpoblacionTotal(self):
+        self.__tasaMuertes = self.__tasaMuertes / 100
+        self.__pobacionDelPais2 = ((self.__pobacionDelPais2 * self.__tasaCrecimiento) + self.__poblacionDelPais) - (self.__poblacionDelPais * self.__tasaMuertes)
+
+
+    def getpoblacionTotal(self):
+        return self.__pobacionDelPais2
+
+
+
